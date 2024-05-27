@@ -1,0 +1,28 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="YourAppName.MainPage">
+
+	<StackLayout>
+		<Label Text="Lista de Tareas" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10" FontSize="Large" />
+
+		<ListView ItemsSource="{Binding Tasks}" SelectedItem="{Binding SelectedTask}" Margin="10">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<TextCell Text="{Binding Title}" Detail="{Binding Description}" />
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+
+		<Label Text="Agregar Tarea" HorizontalOptions="CenterAndExpand" Margin="0,20,0,10" FontSize="Large" />
+
+		<Entry Placeholder="Título" Text="{Binding NewTaskTitle}" Margin="10" />
+		<Entry Placeholder="Descripción" Text="{Binding NewTaskDescription}" Margin="10" />
+
+		<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+			<Button Text="Agregar" Command="{Binding AddTaskCommand}" Margin="5" />
+			<Button Text="Editar" Command="{Binding EditTaskCommand}" Margin="5" />
+			<Button Text="Eliminar" Command="{Binding DeleteTaskCommand}" Margin="5" />
+		</StackLayout>
+	</StackLayout>
+
+</ContentPage>
